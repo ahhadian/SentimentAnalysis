@@ -232,7 +232,7 @@ def train(model, train_dataloader, val_dataloader=None, epochs=4, evaluation=Fal
             print(f"{epoch_i + 1:^7} | {'-':^7} | {avg_train_loss:^12.6f} | {val_loss:^10.6f} | {val_accuracy:^9.2f} | {time_elapsed:^9.2f}")
             print("-"*70)
         print("\n")
-        torch.save({'model_state_dict':model.state_dict(), 'optimizer_state_dict': model.state_dict(), 'scheduler_state_dict': model.state_dict()}, f'./model_epoch_{epoch_i}.bin')
+        torch.save({'model_state_dict':model.state_dict(), 'optimizer_state_dict': optimizer.state_dict(), 'scheduler_state_dict': scheduler.state_dict()}, f'./model_epoch_{epoch_i}.bin')
     print("Training complete!")
 
 
